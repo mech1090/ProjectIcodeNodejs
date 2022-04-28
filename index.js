@@ -4,6 +4,9 @@ const express = require('express')
 const cors = require('cors')
 const config = require('config')
 const productRouter = require('./routes/product')
+const { default: mongoose } = require('mongoose')
+
+require('./db')
 
 //initializing app
 const app = express()
@@ -24,6 +27,12 @@ app.set('view','./views')
 
 //start server
 port = config.get('port') || 8080
-app.listen(port, ()=>{
-    console.log(`Server running on port ${port}`)
+
+mongoose.connection.once('open',()=>{
+    app.listen(port, ()=>{
+        console.log(`Server running on port ${port}`)
+    })
+    console.log('db connected')
 })
+
+
