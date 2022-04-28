@@ -1,6 +1,7 @@
 {
     "port":3300,
     "database":{
+        "name":"projectIcodeNodejs",
         "uri":"mongodb://localhost:27017"
     }
 }
