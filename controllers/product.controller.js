@@ -1,15 +1,32 @@
 
 const productModel = require('../models/product.model')
+//const {validateProduct} = require('../validators/product.validator')
 
 const findAll = async(req,res)=>{
     const productList = await productModel.find()
-    res.send(productList)
+    return res.send(productList)
 }
-const findOne = (req,res)=>{console.log('Finding element by ID')}
+const findOne = async(req,res)=>{
+    console.log('Finding element by ID')
+    const{id} = req.params
+    try{
+        const product = await productModel.findById(id)
+        return res.send(product)
+
+    }catch(error){
+
+        res.status(404).send('Can not find the element with this ID')
+    }
+
+     }
+
+
+
 const createOne= async(req,res)=>{
     console.log('creating the data from user')
     const {name,specs,price,instock} = req.body
     const fields = {name,specs,price,instock}
+ //   const {error,value} = validateProduct(fields)
     const newProduct = await productModel.create(fields)
     return res.send(newProduct)
 
@@ -39,8 +56,17 @@ const updateOne = async(req,res)=>{
 
     }
 
-
-const deleteOne = (req,res)=>{console.log('delete by id')}
+const deleteOne = async(req,res)=>{
+    console.log('delete by id')
+    const{id} = req.params
+    try{
+        await productModel.findByIdAndDelete(id)
+        return res.send('product deleted')
+    }catch(error){
+        //console.log(error)
+        return res.status(404).send(`can not find product with this id ${id}`)
+    }
+}
 
 
 module.exports = {findAll,findOne,createOne,updateOne,deleteOne}
