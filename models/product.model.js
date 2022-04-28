@@ -9,8 +9,8 @@ const schemaDefination = {
     specs:{
         type:String
     },
-    Price:{
-        type:number,
+    price:{
+        type:Number,
         required:[true,'Price is required']
     },
     instock:{
