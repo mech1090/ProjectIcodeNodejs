@@ -1,6 +1,6 @@
 
 const productModel = require('../models/product.model')
-//const {validateProduct} = require('../validators/product.validator')
+const {validateNewProduct} = require('../validators/product.validator')
 
 const findAll = async(req,res)=>{
     const productList = await productModel.find()
@@ -26,8 +26,8 @@ const createOne= async(req,res)=>{
     console.log('creating the data from user')
     const {name,specs,price,instock} = req.body
     const fields = {name,specs,price,instock}
- //   const {error,value} = validateProduct(fields)
-    const newProduct = await productModel.create(fields)
+    const {error,value} = validateNewProduct(fields)
+    const newProduct = await productModel.create(value)
     return res.send(newProduct)
 
     /*
