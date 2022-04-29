@@ -6,7 +6,7 @@ const schemaDefination = {
         type:String,
         required:[true,'Name is required']
     },
-    specs:{
+    email:{
         type:String
     },
     price:{

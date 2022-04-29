@@ -1,16 +1,16 @@
 
-const productModel = require('../models/product.model')
-const {validateNewProduct} = require('../validators/product.validator')
+const registration = require('../models/register.model')
+const {validateNewProduct} = require('../validators/register.validator')
 
 const findAll = async(req,res)=>{
-    const productList = await productModel.find()
+    const productList = await registration.find()
     return res.send(productList)
 }
 const findOne = async(req,res)=>{
     console.log('Finding element by ID')
     const{id} = req.params
     try{
-        const product = await productModel.findById(id)
+        const product = await registration.findById(id)
         return res.send(product)
 
     }catch(error){
@@ -24,10 +24,10 @@ const findOne = async(req,res)=>{
 
 const createOne= async(req,res)=>{
     console.log('creating the data from user')
-    const {name,specs,price,instock} = req.body
-    const fields = {name,specs,price,instock}
+    const {name,email,price,instock} = req.body
+    const fields = {name,email,price,instock}
     const {error,value} = validateNewProduct(fields)
-    const newProduct = await productModel.create(value)
+    const newProduct = await registration.create(value)
     return res.send(newProduct)
 
     /*
@@ -39,12 +39,12 @@ const createOne= async(req,res)=>{
 const updateOne = async(req,res)=>{
     console.log('updating one entry')
     const {id} = req.params
-    const {name,specs,price,instock}= req.body
-    const fields = {name,specs,price,instock}
+    const {name,email,price,instock}= req.body
+    const fields = {name,email,price,instock}
     try{
-        const existingProduct = await productModel.findById(id)
+        const existingProduct = await registration.findById(id)
         if(existingProduct){
-            await productModel.updateOne({_id:id},fields)
+            await registration.updateOne({_id:id},fields)
         }
         return res.send('product updated')
 
@@ -60,7 +60,7 @@ const deleteOne = async(req,res)=>{
     console.log('delete by id')
     const{id} = req.params
     try{
-        await productModel.findByIdAndDelete(id)
+        await registration.findByIdAndDelete(id)
         return res.send('product deleted')
     }catch(error){
         //console.log(error)
