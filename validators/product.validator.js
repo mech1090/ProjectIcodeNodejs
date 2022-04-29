@@ -3,7 +3,7 @@
 
 const Joi = require('joi')
 const validateNewProduct = fields=>{
-const productValidationSchema = Object({
+const productValidationSchema = Joi.object({
     name:Joi.string().min(3).max(5).required(),
     specs:Joi.string().max(512),
     price:Joi.number().required(),
