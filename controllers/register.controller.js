@@ -1,6 +1,6 @@
-
-const registration = require('../models/register.model')
 const {validateNewProduct} = require('../validators/register.validator')
+const registration = require('../models/register.model')
+
 
 const findAll = async(req,res)=>{
     const productList = await registration.find()
@@ -24,8 +24,8 @@ const findOne = async(req,res)=>{
 
 const createOne= async(req,res)=>{
     console.log('creating the data from user')
-    const {name,email,price,instock} = req.body
-    const fields = {name,email,price,instock}
+    const {name,email,mobile,message} = req.body
+    const fields = {name,email,mobile,message}
     const {error,value} = validateNewProduct(fields)
     const newProduct = await registration.create(value)
     return res.send(newProduct)
@@ -39,8 +39,8 @@ const createOne= async(req,res)=>{
 const updateOne = async(req,res)=>{
     console.log('updating one entry')
     const {id} = req.params
-    const {name,email,price,instock}= req.body
-    const fields = {name,email,price,instock}
+    const {name,email,mobile,message}= req.body
+    const fields = {name,email,mobile,message}
     try{
         const existingProduct = await registration.findById(id)
         if(existingProduct){

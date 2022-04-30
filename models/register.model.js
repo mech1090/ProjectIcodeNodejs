@@ -1,4 +1,4 @@
-const { string, number } = require('joi')
+
 const mongoose = require('mongoose')
 
 const schemaDefination = {
@@ -9,13 +9,13 @@ const schemaDefination = {
     email:{
         type:String
     },
-    price:{
+    mobile:{
         type:Number,
-        required:[true,'Price is required']
+        required:[true,'Mobile number required']
     },
-    instock:{
-        type:Boolean,
-        required:[true,'Stock status is required']
+    message:{
+        type:String,
+     //   required:[true,'Stock status is required']
 
     }
 }
