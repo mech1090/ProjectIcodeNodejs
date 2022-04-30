@@ -1,6 +1,6 @@
-const {validateNewProduct} = require('../validators/register.validator')
-const registration = require('../models/register.model')
 
+const registration = require('../models/register.model')
+const {validateNewProduct} = require('../validators/register.validator')
 
 const findAll = async(req,res)=>{
     const productList = await registration.find()

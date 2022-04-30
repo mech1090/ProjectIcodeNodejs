@@ -1,0 +1,179 @@
+h1{
+    color: red;
+    text-align: center;
+}
+
+h1.w3-center w3-jumbo w3-padding-32
+
+style.
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+
+.author{
+    color: red;
+    text-align: center;
+    background-color:black;
+}
+
+.unathor{
+    color: blueviolet;
+}
+
+header{
+   
+}
+footer{
+    background-color: rgba(255, 200, 0, 0.984);
+    text-align: center;
+
+}
+ul{
+    display: flex;
+    justify-content: flex-start;
+    justify-content: right;
+    gap: 4rem;
+    list-style: none;
+
+}
+
+.li-class > a {
+    color: black;
+    font-size: 20px;
+    text-decoration-line: none ;
+    text-decoration: none;
+    
+}
+
+
+
+.li-class > a:hover {
+    color:greenyellow;
+
+}
+
+
+
+#bg{
+    background-color: rgb(235, 244, 133);
+}
+
+.line-class{
+    color: red;
+    text-decoration-thickness: 100rem;
+    align-content: var();
+}
+
+/*
+
+All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
+        
+The 'supports' rule will only run if your browser supports CSS grid.
+
+Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+:root {
+  /* Base font size */
+  font-size: 15px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.heading {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  padding: 3.5rem 0;
+  color: #1a1a1a;
+}
+
+.heading span {
+  display: block;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  /* Compensate for excess margin on outer gallery flex items */
+  margin: -1rem -1rem;
+}
+
+.gallery-item {
+  /* Minimum width of 24rem and grow to fit available space */
+  flex: 1 0 24rem;
+  /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+  margin: 1rem;
+  box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.15);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+/*
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    grid-gap: 2rem;
+  }
+
+  .gallery,
+  .gallery-item {
+    margin: 0;
+  }
+}
+*/
+
+.img{ width:90%; height:auto;}
+.content-part-3{ padding:30px 0px !important; float:left;}
+.content-part-3-inner{ padding:10px 0px;}
+.content-part-3-right-h4{ font-weight:600; color:#000; padding:0px;}
+.margin_5{ margin:5px 0px; float:left;}
+.margin_p3{ margin:10px 0px 5px;}
+.price{color:#000; padding:5px 0px; font-weight:bold; font-size:15px;}
+.green{ color:#7db549; font-weight:bold; font-size:16px;}
+.order-now{ color:#FFF; background:#7db549; padding:5px 15px; border-radius:2px; text-decoration:none; margin:5px auto;}
+.order-now:hover{background:#689242;}
+@media only screen and (min-width:320px) and (max-width:480px){
+	.img{ width:100%;}
+	}
+@media only screen and (min-width:600px) and (max-width:768px){
+	.img{ width:96%; border-radius:3px;}
+	.content-part-3-right-h4{ font-weight:600; color:#000; padding:5px 0px 0px;}
+	}
