@@ -145,12 +145,11 @@ body {
   .contact-page {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 2rem;
-  line-height: 1.5;
+  line-height: 1.0;
   text-align: center;
-  padding: 3.5rem 0;
-  color: #1a1a1a;
+  padding: 1.5rem 0;
   font-style: italic;
-  color:green;
+  color:goldenrod;
   
 }
 
