@@ -7,7 +7,7 @@ const config = require('config')
 const registerPage = require('./routes/register')
 const homePage = require('./routes/home')
 const menuPage = require('./routes/menu')
-
+const {NOT_FOUND_MSG}  = require('./constants')
 const mongoose = require('mongoose')
 
 require('./db')
@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static('public'))
 app.use('/register',registerPage)
 app.use('/home',homePage)
-app.use('/menu',registerPage)
+app.use('/menu',menuPage)
 
 //templete engine pug
 app. set('view engine', 'pug')

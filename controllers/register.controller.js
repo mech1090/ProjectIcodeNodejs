@@ -2,6 +2,26 @@
 const registration = require('../models/register.model')
 const {validateNewProduct} = require('../validators/register.validator')
 
+
+
+const createOne= async(req,res)=>{
+    console.log('creating the data from user')
+    const {name,email,mobile,message} = req.body
+    const fields = {name,email,mobile,message}
+    const {error,value} = validateNewProduct(fields)
+    if (error){
+        console.log('BAD_DATA')
+    }
+    const newProduct = await registration.create(value)
+    res.render('home/layout',{
+        pageHeader:'Gourmet Italian Grilled Sandwiches & More!'
+    
+    })
+     
+    console.log(newProduct)
+
+
+/*
 const findAll = async(req,res)=>{
     const productList = await registration.find()
     return res.send(productList)
@@ -20,15 +40,8 @@ const findOne = async(req,res)=>{
 
      }
 
+*/
 
-
-const createOne= async(req,res)=>{
-    console.log('creating the data from user')
-    const {name,email,mobile,message} = req.body
-    const fields = {name,email,mobile,message}
-    const {error,value} = validateNewProduct(fields)
-    const newProduct = await registration.create(value)
-    return res.send(newProduct)
 
     /*
     const newProduct = new productModel(fields)
@@ -36,6 +49,7 @@ const createOne= async(req,res)=>{
     res.send(newProduct)
     */
 }
+/*
 const updateOne = async(req,res)=>{
     console.log('updating one entry')
     const {id} = req.params
@@ -67,7 +81,7 @@ const deleteOne = async(req,res)=>{
         return res.status(404).send(`can not find product with this id ${id}`)
     }
 }
-
-
-module.exports = {findAll,findOne,createOne,updateOne,deleteOne}
+*/
+module.exports = {createOne}
+//module.exports = {findAll,findOne,createOne,updateOne,deleteOne}
 
