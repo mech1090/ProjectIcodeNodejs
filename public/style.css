@@ -46,6 +46,7 @@ ul{
     text-decoration: none;
     font-style: italic;
     font-weight: 200;
+    margin-right: 20px;
     
 }
 
@@ -56,6 +57,9 @@ ul{
 
 }
 
+.sup{
+  color: red;
+}
 
 
 #bg{
@@ -137,18 +141,21 @@ body {
 	.content-part-3-right-h4{ font-weight:600; color:#000; padding:5px 0px 0px;}
 	}
 
-  /*
-  .heading {
+  
+  .contact-page {
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 4rem;
-  font-weight: 500;
+  font-size: 2rem;
   line-height: 1.5;
   text-align: center;
   padding: 3.5rem 0;
   color: #1a1a1a;
+  font-style: italic;
+  color:green;
+  
 }
 
-.heading span {
+.contact-page span {
   display: block;
+  
 }
-  */
+  

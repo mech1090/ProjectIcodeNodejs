@@ -3,8 +3,9 @@ const router = express.Router()
 const {NOT_FOUND_MSG}  = require('../constants')
 
 router.get('/',(req,res)=>{
-    res.render('menu/layout',{
-        pageTitle:'Menu',
+    console.log('IN RENDER AREA')
+    res.render('contact/layout',{
+        pageTitle:'Panini',
         pageHeader:'Gourmet Italian Grilled Sandwiches & More!'
 
     })
