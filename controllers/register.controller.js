@@ -13,7 +13,7 @@ const createOne= async(req,res)=>{
         console.log('BAD_DATA')
     }
     const newProduct = await registration.create(value)
-    res.render('home/layout',{
+    res.render('thankyou/layout',{
         pageHeader:'Gourmet Italian Grilled Sandwiches & More!'
     
     })
